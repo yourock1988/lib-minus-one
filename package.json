@@ -1,14 +1,67 @@
 {
-  "name": "18_lib_minus_one",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dev.js",
+  "name": "lib-minus-one",
+  "version": "0.0.1",
+  "description": "libary that can substract 1 from any number",
+  "author": "YouROCK (https://github.com/yourock1988)",
+  "homepage": "https://github.com/yourock1988/lib-minus-one",
+  "repository": "yourock1988/lib-minus-one",
+  "license": "MIT",
+  "main": "./lib/main.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon dev.js",
+    "start": "node ./lib/main.js",
+    "build": "rimraf ./lib && babel -d ./lib ./src -s && node ./lib/main.js",
+    "lint:js": "eslint ./src",
+    "lint-staged": "lint-staged",
+    "prepublishOnly": "build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "pre-commit": "lint-staged",
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "rules": {
+      "semi": 0,
+      "no-console": "off"
+    },
+    "ignorePatterns": [
+      "node_modules/",
+      "lib/"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "libary"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.24.8",
     "@babel/core": "^7.25.2",
