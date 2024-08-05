@@ -1,6 +1,6 @@
 {
   "name": "lib-minus-one",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "libary that can substract 1 from any number",
   "author": "YouROCK (https://github.com/yourock1988)",
   "homepage": "https://github.com/yourock1988/lib-minus-one",
@@ -13,10 +13,10 @@
   "scripts": {
     "dev": "nodemon dev.js",
     "start": "node ./lib/main.js",
-    "build": "rimraf ./lib && babel -d ./lib ./src -s && node ./lib/main.js",
+    "build": "rimraf ./lib && babel -d ./lib ./src && node ./lib/main.js",
     "lint:js": "eslint ./src",
     "lint-staged": "lint-staged",
-    "prepublishOnly": "build"
+    "prepublishOnly": "npm run build"
   },
   "pre-commit": "lint-staged",
   "lint-staged": {
@@ -47,14 +47,10 @@
   "babel": {
     "presets": [
       [
-        "@babel/env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
+        "@babel/preset-env"
       ]
-    ]
+    ],
+    "sourceMaps": false
   },
   "keywords": [
     "libary"

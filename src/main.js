@@ -1,3 +1,3 @@
-const minusOne = require('./minusOne')
+const minusOne = require('./utils/minusOne')
 
 module.exports = minusOne
