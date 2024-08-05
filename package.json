@@ -53,7 +53,10 @@
     "sourceMaps": false
   },
   "keywords": [
-    "libary"
+    "substract",
+    "sub",
+    "minus",
+    "one"
   ],
   "engines": {
     "node": ">=14.0.0"
